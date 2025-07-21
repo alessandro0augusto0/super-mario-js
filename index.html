@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Mario Runner</title>
+</head>
+<body>
+  <div class="menu">
+    <h1>Super Mario Runner</h1>
+    <button class="start" onclick="startGame()">Iniciar Jogo</button>
+    <div class="instructions">
+      <p>Pressione ESPAÇO ou TOQUE na tela para pular</p>
+    </div>
+  </div>
+
+  <div class="game-container">
+    <div class="game">
+      <div class="score">0</div>
+      <div class="lives">❤️❤️❤️</div>
+      <img class="mario" src="img/mario.gif" alt="mario">
+      <img class="pipe" src="img/pipe.png" alt="cano">
+      <img class="clouds" src="img/clouds.png" alt="nuvem">
+      <img class="ground" src="img/ground2.png" alt="chão">
+      <button class="jump-button">Pular</button>
+      <button class="pause-button">⏸</button>
+    </div>
+
+    <div class="game-over">
+      <h1>Game Over</h1>
+      <div class="final-score">Pontuação: 0</div>
+      <button onclick="restartGame()">Jogar Novamente</button>
+    </div>
+  </div>
+
+  <audio id="theme" src="audio/theme.mp3" loop></audio>
+  <audio id="jump" src="audio/jump.mp3"></audio>
+  <audio id="gameover" src="audio/gameover.mp3"></audio>
+  <audio id="score" src="audio/score.mp3"></audio>
+  <audio id="damage" src="audio/damage.mp3"></audio> <script src="script.js"></script>
+</body>
+</html>

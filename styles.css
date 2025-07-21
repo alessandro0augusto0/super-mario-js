@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+.menu {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all 0.5s;
+}
+
+.menu h1 {
+    font-size: 3.5rem;
+    color: #e52521;
+    text-shadow: 3px 3px 0 #000;
+    margin-bottom: 2rem;
+}
+
+.menu button {
+    background: #e52521;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 0 #000;
+}
+
+.menu button:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 0 #000;
+}
+
+.instructions {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+}
+
+.game-container {
+    display: none;
+}
+
+.game {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+    z-index: 10;
+}
+
+.lives {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+    z-index: 10;
+}
+
+.pipe {
+    position: absolute;
+    bottom: 70px;
+    right: -80px;
+    width: 80px;
+    z-index: 3;
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    z-index: 4;
+    transition: all 0.1s;
+}
+
+.clouds {
+    width: 550px;
+    position: absolute;
+    top: 50px;
+    z-index: 1;
+    animation: clouds-animation 20s infinite linear;
+}
+
+.ground {
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-image: url('img/ground.png');
+    background-repeat: repeat-x;
+}
+
+.jump-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-size: 1rem;
+    display: none;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.pause-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-size: 1.2rem;
+    z-index: 10;
+    cursor: pointer;
+    display: none;
+}
+
+.game-over {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.game-over h1 {
+    font-size: 4rem;
+    color: #e52521;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 3px 3px 0 #000;
+}
+
+.game-over button {
+    background: #e52521;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 0 #000;
+}
+
+.game-over button:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 0 #000;
+}
+
+.final-score {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 0 #000;
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+.pipe-animation {
+    animation: pipe-animation 2s linear;
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+.jump {
+    animation: jump 800ms ease-out;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 70px;
+    }
+    40% {
+        bottom: 270px;
+    }
+    50% {
+        bottom: 270px;
+    }
+    60% {
+        bottom: 270px;
+    }
+    100% {
+        bottom: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .jump-button {
+        display: block;
+    }
+    
+    .pause-button {
+        display: block;
+    }
+    
+    .menu h1 {
+        font-size: 2.5rem;
+    }
+}

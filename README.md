@@ -5,12 +5,11 @@
 
   **Um divertido jogo de navegador inspirado no clássico Super Mario Bros!**
 
-  [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
-  [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
-  [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
-</div>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js" /><br>
 
-<br>
+</p>
+</div>
 
 ## 🎮 Sobre o Jogo
 **Super Mario Runner** é um "endless runner" (jogo de corrida infinita) desenvolvido puramente com HTML, CSS e JavaScript (Vanilla). Ajude o Mario a desviar dos icônicos canos verdes, alcance a maior pontuação possível e sobreviva o máximo que puder!

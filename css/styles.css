@@ -16,44 +16,103 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(#87CEEB, #E0F6FF);
+    background: url('../assets/img/clouds.png') repeat-x, linear-gradient(#87CEEB, #E0F6FF);
+    background-size: 550px, auto;
+    animation: menu-bg-animation 20s infinite linear;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
-    transition: all 0.5s;
+    transition: opacity 0.5s ease-out;
+}
+
+@keyframes menu-bg-animation {
+    from { background-position: 0 50px, 0 0; }
+    to { background-position: 550px 50px, 0 0; }
+}
+
+.menu-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 3rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.menu-mario {
+    width: 120px;
+    margin-bottom: -10px;
+    animation: menu-bounce 1s infinite alternate ease-in-out;
+}
+
+@keyframes menu-bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
 }
 
 .menu h1 {
     font-size: 3.5rem;
     color: #e52521;
-    text-shadow: 3px 3px 0 #000;
+    text-shadow: 3px 3px 0 #fff, 4px 4px 0 #000;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 0 #fff;
 }
 
 .menu button {
-    background: #e52521;
+    background: linear-gradient(180deg, #ff4b47, #e52521);
     color: white;
     font-weight: bold;
-    font-size: 1.5rem;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 10px;
+    font-size: 1.8rem;
+    border: 3px solid #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 3px 3px 0 #000;
+    transition: all 0.2s;
+    box-shadow: 0 6px 0 #9e1a17, 0 10px 15px rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu button:active {
+    transform: translateY(6px);
+    box-shadow: 0 0 0 #9e1a17, 0 4px 5px rgba(0,0,0,0.3);
 }
 
 .menu button:hover {
-    transform: translateY(-5px);
-    box-shadow: 5px 5px 0 #000;
+    filter: brightness(1.1);
 }
 
 .instructions {
     margin-top: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #333;
-    text-align: center;
+    font-weight: bold;
+}
+
+kbd {
+    background: #f4f4f4;
+    border: 2px solid #ccc;
+    border-bottom: 4px solid #999;
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-size: 1rem;
+    font-family: monospace;
+    color: #333;
+    font-weight: bold;
+    margin: 0 5px;
 }
 
 .game-container {

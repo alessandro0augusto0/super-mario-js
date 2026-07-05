@@ -105,7 +105,7 @@ function handleCollision() {
     pipe.style.animationPlayState = 'paused';
     mario.style.animation = 'none';
 
-    mario.src = 'img/game-over.png';
+    mario.src = 'assets/img/game-over.png';
     mario.style.width = '80px';
     mario.style.marginLeft = '50px';
 
@@ -135,7 +135,7 @@ function handleCollision() {
 function resetAfterCollision() {
     isGameOver = false;
 
-    mario.src = 'img/mario.gif';
+    mario.src = 'assets/img/mario.gif';
     mario.style.width = '150px';
     mario.style.marginLeft = '0';
     mario.style.bottom = '70px';
@@ -156,11 +156,12 @@ function resetGame() {
     if (pipeTimeoutId) clearTimeout(pipeTimeoutId);
     pipe.removeEventListener('animationend', onPipeCycleEnd);
     
-    mario.src = 'img/mario.gif';
+    mario.src = 'assets/img/mario.gif';
     mario.style.width = '150px';
     mario.style.marginLeft = '0';
     mario.style.bottom = '70px';
     mario.style.animation = '';
+    pipe.style.animationPlayState = 'running';
     
     score = 0;
     lives = 3;

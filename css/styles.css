@@ -69,24 +69,43 @@ body {
     background: linear-gradient(#87CEEB, #E0F6FF);
 }
 
-.score {
+.hud {
     position: absolute;
     top: 20px;
-    left: 20px;
-    font-size: 2rem;
-    color: white;
-    text-shadow: 2px 2px 4px #000;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 600px;
     z-index: 10;
 }
 
-.lives {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
+.score-box, .lives-box {
+    background: rgba(0, 0, 0, 0.6);
+    border: 3px solid #fff;
+    border-radius: 15px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.score-label, .lives-label {
+    font-size: 1rem;
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #000;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.score, .lives {
+    font-size: 2.5rem;
     color: white;
-    text-shadow: 2px 2px 4px #000;
-    z-index: 10;
+    font-weight: bold;
+    text-shadow: 3px 3px 0 #000;
 }
 
 .pipe {

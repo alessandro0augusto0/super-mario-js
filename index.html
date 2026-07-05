@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/styles.css">
@@ -7,19 +8,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Super Mario Runner</title>
 </head>
+
 <body>
   <div class="menu">
     <h1>Super Mario Runner</h1>
     <button class="start" onclick="startGame()">Iniciar Jogo</button>
     <div class="instructions">
-      <p>Pressione ESPAÇO ou TOQUE na tela para pular</p>
+      <p>Pressione ESPAÇO para pular</p>
     </div>
   </div>
 
   <div class="game-container">
     <div class="game">
-      <div class="score">0</div>
-      <div class="lives">❤️❤️❤️</div>
+      <div class="hud">
+        <div class="score-box">
+          <span class="score-label">SCORE</span>
+          <span class="score">000000</span>
+        </div>
+        <div class="lives-box">
+          <span class="lives-label">LIVES</span>
+          <span class="lives">❤️❤️❤️</span>
+        </div>
+      </div>
       <img class="mario" src="assets/img/mario.gif" alt="mario">
       <img class="pipe" src="assets/img/pipe.png" alt="cano">
       <img class="clouds" src="assets/img/clouds.png" alt="nuvem">
@@ -39,6 +49,8 @@
   <audio id="jump" src="assets/audio/jump.mp3"></audio>
   <audio id="gameover" src="assets/audio/gameover.mp3"></audio>
   <audio id="score" src="assets/audio/score.mp3"></audio>
-  <audio id="damage" src="assets/audio/damage.mp3"></audio> <script src="js/script.js"></script>
+  <audio id="damage" src="assets/audio/damage.mp3"></audio>
+  <script src="js/script.js"></script>
 </body>
+
 </html>

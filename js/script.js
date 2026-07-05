@@ -120,7 +120,7 @@ function handleCollision() {
         gameoverAudio.play();
         
         setTimeout(() => {
-            finalScoreElement.textContent = `Pontuação: ${score}`;
+            finalScoreElement.textContent = `Pontuação: ${score.toString().padStart(6, '0')}`;
             gameOver.style.display = 'flex';
         }, 1500);
     } else {
@@ -219,7 +219,7 @@ function increaseScore() {
 }
 
 function updateScore() {
-    scoreElement.textContent = score;
+    scoreElement.textContent = score.toString().padStart(6, '0');
 }
 
 function updateLives() {

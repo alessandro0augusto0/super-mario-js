@@ -23,19 +23,33 @@
   </div>
 
   <div class="game-container">
+    <div class="pause-menu" style="display: none;">
+      <div class="menu-card">
+        <h1>PAUSADO</h1>
+        <button class="start" onclick="togglePause()">▶ Continuar</button>
+        <button class="start btn-secondary" onclick="restartGame()">↺ Reiniciar</button>
+      </div>
+    </div>
+    
     <div class="game">
       <div class="hud">
         <div class="score-box">
           <span class="score-label">SCORE</span>
           <span class="score">000000</span>
         </div>
+        <div class="center-hud">
+          <div class="level-indicator">NÍVEL <span class="level-value">1</span></div>
+          <div class="combo-text" id="combo-text">COMBO x3!</div>
+        </div>
         <div class="lives-box">
           <span class="lives-label">LIVES</span>
           <span class="lives">❤️❤️❤️</span>
         </div>
       </div>
+      <div id="countdown-display" style="display: none;">3</div>
       <img class="mario" src="assets/img/mario.gif" alt="mario">
-      <img class="pipe" src="assets/img/pipe.png" alt="cano">
+      <img class="obstacle pipe" id="obstacle" src="assets/img/pipe.png" alt="obstáculo">
+      <img class="powerup" id="powerup" src="assets/img/mushroom.png" alt="cogumelo">
       <img class="clouds" src="assets/img/clouds.png" alt="nuvem">
       <img class="ground" src="assets/img/ground2.png" alt="chão">
       <button class="jump-button">Pular</button>
@@ -43,9 +57,24 @@
     </div>
 
     <div class="game-over">
-      <h1>Game Over</h1>
-      <div class="final-score">Pontuação: 0</div>
-      <button onclick="restartGame()">Jogar Novamente</button>
+      <div class="menu-card">
+        <h1>Game Over</h1>
+        <div class="stats-container">
+          <div class="stat-box">
+            <span class="stat-label">SCORE</span>
+            <span class="stat-value final-score">000000</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">HIGH SCORE</span>
+            <span class="stat-value high-score">000000</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">NÍVEL</span>
+            <span class="stat-value final-level">1</span>
+          </div>
+        </div>
+        <button class="start" onclick="restartGame()">↺ Jogar Novamente</button>
+      </div>
     </div>
   </div>
 

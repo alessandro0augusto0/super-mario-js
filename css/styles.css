@@ -27,8 +27,13 @@ body {
 }
 
 @keyframes menu-bg-animation {
-    from { background-position: 0 50px, 0 0; }
-    to { background-position: 550px 50px, 0 0; }
+    from {
+        background-position: 0 50px, 0 0;
+    }
+
+    to {
+        background-position: 550px 50px, 0 0;
+    }
 }
 
 .menu-card {
@@ -40,7 +45,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
@@ -51,8 +56,13 @@ body {
 }
 
 @keyframes menu-bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-20px); }
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-20px);
+    }
 }
 
 .menu h1 {
@@ -81,7 +91,7 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.2s;
-    box-shadow: 0 6px 0 #9e1a17, 0 10px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 0 #9e1a17, 0 10px 15px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 10px;
@@ -89,7 +99,7 @@ body {
 
 .menu-card button:active {
     transform: translateY(6px);
-    box-shadow: 0 0 0 #9e1a17, 0 4px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 0 #9e1a17, 0 4px 5px rgba(0, 0, 0, 0.3);
 }
 
 .menu-card button:hover {
@@ -98,11 +108,11 @@ body {
 
 .menu-card .btn-secondary {
     background: linear-gradient(180deg, #777, #555);
-    box-shadow: 0 6px 0 #333, 0 10px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 0 #333, 0 10px 15px rgba(0, 0, 0, 0.3);
 }
 
 .menu-card .btn-secondary:active {
-    box-shadow: 0 0 0 #333, 0 4px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 0 #333, 0 4px 5px rgba(0, 0, 0, 0.3);
 }
 
 .instructions {
@@ -150,7 +160,8 @@ kbd {
     z-index: 10;
 }
 
-.score-box, .lives-box {
+.score-box,
+.lives-box {
     background: rgba(0, 0, 0, 0.6);
     border: 3px solid #fff;
     border-radius: 15px;
@@ -158,10 +169,11 @@ kbd {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.score-label, .lives-label {
+.score-label,
+.lives-label {
     font-size: 1rem;
     color: #ffd700;
     font-weight: bold;
@@ -170,7 +182,8 @@ kbd {
     letter-spacing: 2px;
 }
 
-.score, .lives {
+.score,
+.lives {
     font-size: 2.5rem;
     color: white;
     font-weight: bold;
@@ -226,7 +239,7 @@ kbd {
     display: none;
     z-index: 10;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .pause-button {
@@ -244,7 +257,8 @@ kbd {
     display: none;
 }
 
-.game-over, .pause-menu {
+.game-over,
+.pause-menu {
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.6);
@@ -266,7 +280,7 @@ kbd {
 }
 
 .stat-box {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     border: 2px solid #fff;
     border-radius: 10px;
     padding: 15px;
@@ -292,6 +306,7 @@ kbd {
     from {
         right: -550px;
     }
+
     to {
         right: 100%;
     }
@@ -305,6 +320,7 @@ kbd {
     from {
         right: -80px;
     }
+
     to {
         right: 100%;
     }
@@ -318,15 +334,19 @@ kbd {
     0% {
         bottom: 70px;
     }
+
     40% {
         bottom: 270px;
     }
+
     50% {
         bottom: 270px;
     }
+
     60% {
         bottom: 270px;
     }
+
     100% {
         bottom: 70px;
     }
@@ -350,9 +370,20 @@ kbd {
 }
 
 @keyframes blink {
-    0% { opacity: 1; filter: sepia(1) hue-rotate(300deg) saturate(5); }
-    50% { opacity: 0; filter: none; }
-    100% { opacity: 1; filter: sepia(1) hue-rotate(300deg) saturate(5); }
+    0% {
+        opacity: 1;
+        filter: sepia(1) hue-rotate(300deg) saturate(5);
+    }
+
+    50% {
+        opacity: 0;
+        filter: none;
+    }
+
+    100% {
+        opacity: 1;
+        filter: sepia(1) hue-rotate(300deg) saturate(5);
+    }
 }
 
 .center-hud {
@@ -390,8 +421,13 @@ kbd {
 }
 
 @keyframes combo-pulse {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
 }
 
 #countdown-display {
@@ -405,16 +441,25 @@ kbd {
     z-index: 50;
     font-weight: bold;
 }
+
 @media (max-width: 768px) {
     .jump-button {
         display: block;
     }
-    
+
     .pause-button {
         display: block;
     }
-    
+
     .menu h1 {
         font-size: 2.5rem;
     }
+}
+
+.jump-button {
+    display: block;
+}
+
+.menu h1 {
+    font-size: 2.5rem;
 }

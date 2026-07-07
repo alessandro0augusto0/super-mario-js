@@ -43,8 +43,8 @@ function playBeep(frequency, duration) {
 let score = 0;
 let highScore = localStorage.getItem('marioHighScore') || 0;
 let lives = 3;
-let gameSpeed = 2; 
-let gapTime = 1.5; 
+let gameSpeed = 2;
+let gapTime = 1.5;
 let level = 1;
 let comboCount = 0;
 let isPaused = false;
@@ -87,9 +87,9 @@ function startGame() {
     startCountdown(() => {
         themeAudio.currentTime = 0;
         themeAudio.play().catch(e => console.log("Autoplay bloqueado:", e));
-        
-        startGameLoop(); 
-        obstacleCycle(); 
+
+        startGameLoop();
+        obstacleCycle();
     });
 }
 
@@ -97,13 +97,13 @@ function obstacleCycle() {
     if (isGameOver || isPaused || isCountingDown) return;
 
     obstacle.classList.remove('pipe-animation');
-    void obstacle.offsetWidth; 
+    void obstacle.offsetWidth;
     obstacle.classList.add('pipe-animation');
     obstacle.style.animationDuration = `${gameSpeed}s`;
 
     // 70% Cano, 30% Goomba
     if (Math.random() > 0.7) {
-        obstacle.src = 'assets/img/goomba.png';
+        obstacle.src = 'assets/img/goomba.gif';
         obstacle.style.width = '60px';
     } else {
         obstacle.src = 'assets/img/pipe.png';
@@ -124,7 +124,7 @@ function obstacleCycle() {
 
 function onObstacleCycleEnd() {
     if (isGameOver) return;
-    
+
     // Combo system
     comboCount++;
     if (comboCount >= 3) {
@@ -135,8 +135,8 @@ function onObstacleCycleEnd() {
     }
 
     // Aumentar dificuldade com limite justo
-    gameSpeed *= 0.98; 
-    gapTime *= 0.99;   
+    gameSpeed *= 0.98;
+    gapTime *= 0.99;
     if (gameSpeed < 1.0) gameSpeed = 1.0;
     if (gapTime < 1.0) gapTime = 1.0;
 
@@ -157,15 +157,15 @@ function showComboMsg() {
 // Loop principal do jogo
 function startGameLoop() {
     if (gameLoop) clearInterval(gameLoop);
-    
+
     gameLoop = setInterval(() => {
         if (isGameOver || isPaused || isCountingDown) return;
-        
+
         const obstaclePosition = obstacle.offsetLeft;
         const marioPosition = parseFloat(window.getComputedStyle(mario).getPropertyValue('bottom'));
         const powerupPosition = powerup.offsetLeft;
         const powerupDisplay = window.getComputedStyle(powerup).getPropertyValue('display');
-        
+
         // Colisão com obstáculo
         if (obstaclePosition <= 120 && obstaclePosition > 0 && marioPosition < 100) {
             handleCollision();
@@ -190,16 +190,16 @@ function startGameLoop() {
 // Manipular colisão
 function handleCollision() {
     isGameOver = true;
-    clearTimeout(obstacleTimeoutId); 
+    clearTimeout(obstacleTimeoutId);
     obstacle.removeEventListener('animationend', onObstacleCycleEnd);
-    
+
     obstacle.style.animationPlayState = 'paused';
     powerup.style.animationPlayState = 'paused';
     mario.style.animation = '';
     mario.classList.remove('jump');
 
     mario.classList.add('damage-blink');
-    
+
     mario.src = 'assets/img/game-over.png';
     mario.style.width = '80px';
     mario.style.marginLeft = '50px';
@@ -208,29 +208,29 @@ function handleCollision() {
 
     themeAudio.pause();
     jumpAudio.pause();
-    
+
     lives--;
     updateLives();
 
     if (lives <= 0) {
         gameoverAudio.currentTime = 0;
         gameoverAudio.play();
-        
+
         if (score > highScore) {
             highScore = score;
             localStorage.setItem('marioHighScore', highScore);
         }
-        
+
         setTimeout(() => {
             finalScoreElement.textContent = score.toString().padStart(6, '0');
-            if(highScoreElement) highScoreElement.textContent = highScore.toString().padStart(6, '0');
-            if(finalLevelElement) finalLevelElement.textContent = level;
+            if (highScoreElement) highScoreElement.textContent = highScore.toString().padStart(6, '0');
+            if (finalLevelElement) finalLevelElement.textContent = level;
             gameOver.style.display = 'flex';
         }, 1500);
     } else {
         damageAudio.currentTime = 0;
         damageAudio.play();
-        
+
         setTimeout(resetAfterCollision, 2000);
     }
 }
@@ -248,12 +248,12 @@ function resetAfterCollision() {
 
     obstacle.style.animationPlayState = 'running';
     powerup.style.display = 'none';
-    
+
     themeAudio.play();
     startGameLoop();
-    
+
     // Se o obstáculo já estava perto de sair, melhor recomeçar o ciclo
-    obstacleCycle(); 
+    obstacleCycle();
 }
 
 function resetGame() {
@@ -265,18 +265,18 @@ function resetGame() {
 
     if (obstacleTimeoutId) clearTimeout(obstacleTimeoutId);
     obstacle.removeEventListener('animationend', onObstacleCycleEnd);
-    
+
     mario.classList.remove('damage-blink');
     mario.src = 'assets/img/mario.gif';
     mario.style.width = '150px';
     mario.style.marginLeft = '0';
     mario.style.bottom = '70px';
     mario.style.animation = '';
-    
+
     obstacle.style.animationPlayState = 'running';
     powerup.style.animationPlayState = 'running';
     powerup.style.display = 'none';
-    
+
     score = 0;
     lives = 3;
     gameSpeed = 2;
@@ -285,10 +285,10 @@ function resetGame() {
     comboCount = 0;
 
     if (levelValueElement) levelValueElement.textContent = level;
-    
+
     updateScore();
     updateLives();
-    
+
     gameoverAudio.pause();
     gameoverAudio.currentTime = 0;
 }
@@ -300,18 +300,18 @@ function restartGame() {
 
 function togglePause() {
     if (isGameOver || lives <= 0 || isCountingDown) return;
-    
+
     isPaused = !isPaused;
-    
+
     if (isPaused) {
         obstacle.style.animationPlayState = 'paused';
         powerup.style.animationPlayState = 'paused';
-        clearTimeout(obstacleTimeoutId); 
+        clearTimeout(obstacleTimeoutId);
         themeAudio.pause();
         pauseMenu.style.display = 'flex';
     } else {
         pauseMenu.style.display = 'none';
-        
+
         startCountdown(() => {
             obstacle.style.animationPlayState = 'running';
             powerup.style.animationPlayState = 'running';
@@ -323,12 +323,12 @@ function togglePause() {
 
 function jump() {
     if (isPaused || isGameOver || isCountingDown) return;
-    
+
     if (!mario.classList.contains('jump')) {
         mario.classList.add('jump');
         jumpAudio.currentTime = 0;
         jumpAudio.play();
-        
+
         setTimeout(() => {
             mario.classList.remove('jump');
         }, 800);
@@ -336,7 +336,7 @@ function jump() {
 }
 
 function increaseScore(amount) {
-    if(isGameOver) return;
+    if (isGameOver) return;
     score += amount;
     updateScore();
     scoreAudio.currentTime = 0;
